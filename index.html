@@ -18,30 +18,18 @@
 
 <body>
 
-    <div id="app">
-        <div class="bg-grey-light py-8 w-full flex mx-auto justify-center items-center">
-            <div class="bg-white rounded w-4/6 shadow duration-4">
-                <div class="flex flex-row  uppercase font-bold text-blue-dark border-b p-6">
-                    <p class="mx-auto">Pokédex Gallery
-                    <p>
-                    <div class="cursor-pointer text-grey-dark hover:text-blue duration-4"><i
-                            class="fas fa-ellipsis-v"></i></div>
-                </div>
-                <div class="p-6 text-grey-darker justify-center mx-auto flex flex-col">
-
-                    <li v-for="(task,index) in tasks" class="list-none">
-                        <img v-bind:src="task.src" v-on:click="toggleShow(index)"
-                            class=" w-52 rounded-full shadow-lg mb-6">
-                            <button class="bg-pink-500 text-white px-5 py-3 rounded" v-on:click="toggleLike(index)">
-                                Like <span class="material-icons text-white text-xl" v-show="task.like">favorite</span>
-                            </button>
-                        <div class="flex" v-show="task.show">
-                            <span class="text-grey-darker p-5">
-                                {{task.detail}}
-                            </span>
-                        </div>
-                    </li>
-
+    <div id="app" class="h-screen w-screen bg-blue-200 flex items-center">
+        <div class="h-auto w-4/6 shadow shadow-lg bg-white mx-auto rounded-md p-5 text-gray-700">
+            <p class="font-extrabold text-lg">Pokédex Gallery | LIKE : {{ countLike}}</p>
+            <div v-for="(item, index) in tasks" :key="index" class="list-none flex flex-col items-center w-full mt-5">
+                <div class="w-full text-gray-700 font-san flex ">
+                        <img v-bind:src="item.src" alt="image" class="w-2/12 " v-on:click="toggleShow(index)">
+                        <button class="bg-pink-400 text-white flex items-center font-semibold px-3 my-auto ml-3 rounded-md focus:outline-none" v-on:click="toggleLike(index)">
+                            LIKE 
+                            <span class="material-icons text-white text-xl ml-1" v-show="item.like">favorite</span>
+                            <span class="material-icons text-white text-xl ml-1" v-show="!item.like">favorite_border</span>
+                        </button>
+                    <p class="p-3 my-auto text-sm" v-show="item.show"> {{item.detail}}</p>
                 </div>
             </div>
         </div>
