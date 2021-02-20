@@ -37,11 +37,11 @@ const app = {
             }else if(index < 0){
                 index = this.tasks.length-1;
             }
-            for (let i = 0; index < this.tasks.length; i++) {
+            for (let i = 0; i < this.tasks.length; i++) {
                 if(i === index){
                     this.tasks[i].show =  !this.tasks[i].show
                 }else{
-                    this.tasks[i].show = false
+                    this.tasks[i].show =  false
                 }
             }
         }
