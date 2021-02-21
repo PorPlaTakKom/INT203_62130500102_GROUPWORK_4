@@ -32,16 +32,16 @@ const app = {
             this.search = !this.search
         },
         toggleShow(index){
-            if(index > this.tasks.length-1){
+            if(index > this.filterText.length-1){
                 index = 0;
             }else if(index < 0){
-                index = this.tasks.length-1;
+                index = this.filterText.length-1;
             }
-            for (let i = 0; i < this.tasks.length; i++) {
+            for (let i = 0; i < this.filterText.length; i++) {
                 if(i === index){
-                    this.tasks[i].show =  !this.tasks[i].show
+                    this.filterText[i].show =  !this.filterText[i].show
                 }else{
-                    this.tasks[i].show =  false
+                    this.filterText[i].show =  false
                 }
             }
         }
